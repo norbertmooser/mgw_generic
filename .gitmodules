@@ -1,0 +1,6 @@
+[submodule "config_meter_generic"]
+	path = config_meter_generic
+	url = https://github.com/yourusername/config_meter_generic.git
+[submodule "modbus_meter_generic"]
+	path = modbus_meter_generic
+	url = https://github.com/yourusername/modbus_meter_generic.git

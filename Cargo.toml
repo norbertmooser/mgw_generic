@@ -1,0 +1,18 @@
+[package]
+name = "mgw_generic"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+modbus_meter_generic = { path = "modbus_meter_generic" }
+config_meter_generic = { path = "config_meter_generic" }
+tokio = { version = "1.0", features = ["full"] }
+
+
+[workspace]
+members = [
+    "modbus_meter_generic",
+    "config_meter_generic",
+]
+
+
