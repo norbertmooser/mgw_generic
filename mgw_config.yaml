@@ -1,3 +1,8 @@
+meter_data:
+  ip: "10.15.1.2"
+  port: 502
+  meter_type: "Phoenix Generic"
+
 write_registers:
   - name: power_factor_L1
     address: 32816
