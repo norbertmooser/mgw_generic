@@ -2,6 +2,7 @@
 
 # Define an arbitrary commit message
 COMMIT_MSG="Automated commit and push including submodules"
+GITHUB_TOKEN="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"
 
 # Function to push changes and handle upstream branch setting
 push_changes() {
@@ -13,6 +14,10 @@ push_changes() {
     git push --set-upstream origin "$current_branch"
   fi
 }
+
+# Configure Git to use the GitHub token
+git config --global credential.helper store
+echo "https://${GITHUB_TOKEN}:x-oauth-basic@github.com" > ~/.git-credentials
 
 # Stage all changes in the main repository
 git add .
