@@ -26,9 +26,15 @@ push_changes
 # Update, commit, and push changes for each submodule
 git submodule foreach '
     git add . &&
-    git commit -m "$COMMIT_MSG" ||
-    echo "No changes to commit in submodule $name" &&
-    push_changes
+    git commit -m "'"$COMMIT_MSG"'" || echo "No changes to commit in submodule $name"
+    if [ $? -eq 0 ]; then
+        if git push; then
+            echo "Changes pushed successfully in submodule $name."
+        else
+            current_branch=$(git branch --show-current)
+            git push --set-upstream origin "$current_branch"
+        fi
+    fi
 '
 
 echo "All changes committed and pushed, including submodules."
