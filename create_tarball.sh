@@ -14,7 +14,6 @@ fi
 tar -czvf $TARBALL_NAME \
     Cargo.toml \
     Cargo.lock \
-    commit_and_push.sh \
     create_tarball.sh \
     mgw_config.yaml \
     src/main.rs \
@@ -25,9 +24,6 @@ tar -czvf $TARBALL_NAME \
     modbus_meter_generic/Cargo.lock \
     modbus_meter_generic/src/lib.rs \
     modbus_meter_generic/src/meter.rs \
-    pinger/Cargo.toml \
-    pinger/src/lib.rs \
-    pinger/src/pinger.rs \
     statemachine_meter_generic/Cargo.toml \
     statemachine_meter_generic/src/statemachine.rs \
     statemachine_meter_generic/src/lib.rs \
@@ -38,8 +34,14 @@ tar -czvf $TARBALL_NAME \
     statemachine_meter_generic/src/statemachine/handlers/handle_verify.rs \
     statemachine_meter_generic/src/statemachine/handlers/handle_write.rs \
     statemachine_meter_generic/src/statemachine/handlers/mod.rs \
-    test_ping/Cargo.toml \
-    test_ping/src/main.rs
+    statemachine_modbus/Cargo.toml \
+    statemachine_modbus/src/statemachine/handlers/handle_idle.rs \
+    statemachine_modbus/src/statemachine/handlers/handle_ping.rs \
+    statemachine_modbus/src/statemachine/handlers/handle_connect.rs \
+    statemachine_modbus/src/statemachine/handlers/mod.rs \
+    statemachine_modbus/src/statemachine/handlers/handle_verify.rs \
+    statemachine_modbus/src/lib.rs \
+    statemachine_modbus/src/statemachine.rs \
 
 # Print a message indicating completion
 echo "Tarball $TARBALL_NAME created successfully."
