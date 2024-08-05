@@ -1,18 +1,24 @@
 meter_data:
   ip: "10.15.1.2"
+  # ip: "8.8.8.8"
   port: 502
   meter_type: "Phoenix Generic"
+
+auth:
+  name: "admin"
+  register: 16403
+  pin: 100
 
 write_registers:
   - name: power_factor_L1
     address: 32816
-    value: 1
+    value: 10
   - name: power_factor_L2
     address: 32818
-    value: 2
+    value: 20
   - name: power_factor_L3
     address: 32820
-    value: 3
+    value: 30
 
 read_registers:
   - name: voltage_L1_N

@@ -6,13 +6,19 @@ edition = "2021"
 [dependencies]
 modbus_meter_generic = { path = "modbus_meter_generic" }
 config_meter_generic = { path = "config_meter_generic" }
+statemachine_meter_generic = { path = "statemachine_meter_generic" }
+statemachine_auth = { path = "statemachine_auth" }
 tokio = { version = "1.0", features = ["full"] }
+anyhow = "1.0"
+
 
 
 [workspace]
 members = [
     "modbus_meter_generic",
-    "config_meter_generic",
+    "statemachine_meter_generic",
+    "config_meter_generic", 
+    "statemachine_auth",
 ]
 
 
