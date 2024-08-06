@@ -61,3 +61,8 @@ read_registers:
     address: 32794
   - name: total_reactive_power
     address: 32792
+
+debug:
+  mgw_generic: "off"
+  statemachine_modbus: "info"
+  statemachine_read: "info"

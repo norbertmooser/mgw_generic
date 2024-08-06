@@ -7,7 +7,7 @@ edition = "2021"
 modbus_meter_generic = { path = "modbus_meter_generic" }
 config_meter_generic = { path = "config_meter_generic" }
 statemachine_meter_generic = { path = "statemachine_meter_generic" }
-# statemachine_auth = { path = "statemachine_auth" }
+statemachine_read = { path = "statemachine_read" }
 statemachine_modbus = { path = "statemachine_modbus" }
 tokio = { version = "1.0", features = ["full"] }
 anyhow = "1.0"
@@ -22,7 +22,7 @@ members = [
     "statemachine_meter_generic",
     "statemachine_modbus",
     "config_meter_generic", 
-    # "statemachine_auth",
+    "statemachine_read",
 ]
 
 

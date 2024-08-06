@@ -377,6 +377,7 @@ dependencies = [
  "modbus_meter_generic",
  "statemachine_meter_generic",
  "statemachine_modbus",
+ "statemachine_read",
  "tokio",
 ]
 
@@ -629,6 +630,18 @@ dependencies = [
  "config_meter_generic",
  "log",
  "modbus_meter_generic",
+ "tokio",
+ "tokio-modbus 0.14.0",
+]
+
+[[package]]
+name = "statemachine_read"
+version = "0.1.0"
+dependencies = [
+ "config_meter_generic",
+ "log",
+ "modbus_meter_generic",
+ "statemachine_modbus",
  "tokio",
  "tokio-modbus 0.14.0",
 ]

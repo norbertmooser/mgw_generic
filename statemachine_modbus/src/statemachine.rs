@@ -46,21 +46,21 @@ impl StateMachine {
         }
     }
 
-    pub async fn access_modbus_context(&self) -> Result<()> {
+    pub async fn access_modbus_context(&self) -> Result<Option<Arc<Mutex<ModbusContext>>>> {
         if self.state != State::Verify {
             return Err(anyhow!("State machine is not in VERIFY state"));
         }
-
+    
         if let Some(modbus_context) = &self.modbus_context {
             println!("Attempting to lock Modbus context");
-
+    
             let lock_timeout = Duration::from_secs(5);
-
+    
             match timeout(lock_timeout, modbus_context.lock()).await {
                 Ok(_context) => {
                     println!("Modbus context locked, validity check passed");
-                    // The context is automatically freed here when it goes out of scope
-                    Ok(())
+                    // Return the context
+                    Ok(Some(Arc::clone(modbus_context)))
                 }
                 Err(_) => {
                     println!("Failed to lock Modbus context within timeout duration");
@@ -69,7 +69,7 @@ impl StateMachine {
             }
         } else {
             println!("Modbus context not found");
-            Err(anyhow!("Modbus context is not available"))
+            Ok(None)
         }
     }
 
